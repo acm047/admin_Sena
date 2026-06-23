@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
 {
-    Schema::create('course', function (Blueprint $table) {
+    Schema::create('courses', function (Blueprint $table) {
         $table->id();
         $table->string('course_number'); 
         $table->string('day');           
         
-        $table->foreignId('area_id')->constrained('areas')->onDelete('cascade');
-        $table->foreignId('training_center_id')->constrained('training_centers')->onDelete('cascade');
-        $table->foreignId('teacher_id')->constrained('teachers')->onDelete('cascade'); 
-        
+       // $table->foreignId('area_id')->constrained('areas')->onDelete('cascade');
+       // $table->foreignId('training_center_id')->constrained('training_centers')->onDelete('cascade');
+       // 
         $table->timestamps();
     });
 }

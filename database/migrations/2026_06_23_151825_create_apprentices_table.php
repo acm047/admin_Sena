@@ -17,9 +17,16 @@ return new class extends Migration
         $table->string('email')->unique();
         $table->string('cell_number'); 
         
-        
-        $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');
-        $table->foreignId('computer_id')->constrained('computers')->onDelete('cascade');
+       $table->unsignedBigInteger('course_id')->nullable();
+       $table->foreign('course_id')
+              ->references('id')
+              ->on('courses')
+              ->onDelete('cascade');
+
+
+
+
+       // $table->foreignId('computer_id')->constrained('computers')->onDelete('cascade');
         
         $table->timestamps();
     });

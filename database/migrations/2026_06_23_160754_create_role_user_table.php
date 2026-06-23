@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('role_user', function (Blueprint $table) {
+       
+        $table->id();
         $table->unsignedBigInteger('course_id')->nullable();
         $table->unsignedBigInteger('teacher_id')->nullable();
         $table->foreign('course_id')
               ->references('id')
-              ->on('course')
+              ->on('courses')
               ->onDelete('cascade');
 
         $table->foreign('teacher_id')
